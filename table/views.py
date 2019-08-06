@@ -24,13 +24,13 @@ def add_payout(request):
         
         if forms.is_valid():
             forms = forms.save(commit=False)
-            now = datetime.now()
-            forms.buy_date = f"{now.year}-{now.month}-{now.day}"
+            # now = datetime.now()
+            # forms.buy_date = f"{now.year}-{now.month}-{now.day}"
             forms.save()
 
             return redirect('table:main')
         else:
-            redirect('table:add')
+            return redirect('table:add')
 
         
 

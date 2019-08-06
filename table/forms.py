@@ -5,7 +5,7 @@ from .models import Payout
 class PayoutModelForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        update_field = ['buyer', 'item', 'money']
+        update_field = ['buyer', 'item', 'money', 'buy_date']
 
         for field_name in update_field:
             self.fields[field_name].widget.attrs.update({
@@ -14,5 +14,5 @@ class PayoutModelForm(forms.ModelForm):
 
     class Meta:
         model = Payout
-        fields = ['buyer', 'item', 'money']
+        fields = ['buyer', 'item', 'money', 'buy_date']
         

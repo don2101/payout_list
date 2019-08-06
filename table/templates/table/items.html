@@ -7,5 +7,29 @@
 
 
 {% block body %}
-  {{ payout_list }}
+  <h1 class="text-center my-5">지출 목록</h1>
+  
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">구매자</th>
+        <th scope="col">물품 목록</th>
+        <th scope="col">가격</th>
+        <th scope="cole">구매 날짜</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for payout in payout_list %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ payout.buyer }}</td>
+          <td>{{ payout.item }}</td>
+          <td>{{ payout.money }} ₩</td>
+          <td>{{ payout.buy_date }}</td>
+        </tr>
+        </tbody>
+      {% endfor %}
+  </table>
 {% endblock %}
